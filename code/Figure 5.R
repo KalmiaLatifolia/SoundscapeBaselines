@@ -1,25 +1,31 @@
 
 # Figure 5
 # Soundscape Baselines manuscript
-# 16 May 2025
+# created 16 May 2025
+# last edited 16 July 2025
 # Laura Berman
 
+# data and code required to generate Figure 5
+# RGB panel plots by site
+
 library(vroom)
+library(ggplot2)
+library(lubridate)
 
 # set wd -----------------------------------------------------------------------
-setwd("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Soundscape Baselines/Draft 1")
+setwd("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Soundscape Baselines/SoundscapeBaselines_GIT")
 
 
 # read in data (vroom MUCH faster than read.csv) -------------------------------
 
-USA <- vroom("AllIndices_SiteAvg_10min_ForPCA_USA.csv")
-Germany <- vroom("AllIndices_SiteAvg_10min_ForPCA_Germany.csv")
-Ecuador <- vroom("AllIndices_SiteAvg_10min_ForPCA_Ecuador.csv")
-Peru <- vroom("AllIndices_SiteAvg_10min_ForPCA_Peru.csv")
-Gabon <- vroom("AllIndices_SiteAvg_10min_ForPCA_Gabon.csv")
-Liberia <- vroom("AllIndices_SiteAvg_10min_ForPCA_Liberia.csv")
-Singapore <- vroom("AllIndices_SiteAvg_10min_ForPCA_Singapore.csv")
-Brunei <- vroom("AllIndices_SiteAvg_10min_ForPCA_Brunei.csv")
+USA <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_USA.csv")
+Germany <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Germany.csv")
+Ecuador <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Ecuador.csv")
+Peru <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Peru.csv")
+Gabon <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Gabon.csv")
+Liberia <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Liberia.csv")
+Singapore <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Singapore.csv")
+Brunei <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Brunei.csv")
 
 # add missing country info -----------------------------------------------------
 
