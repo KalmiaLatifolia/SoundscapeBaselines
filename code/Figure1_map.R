@@ -73,6 +73,8 @@ library(rnaturalearth)
 # Prepare Data
 ################################################################################
 
+# GitHub can't handle the Ecoregions shapefile (too large), so anyone on GitHub will have to download directly from the source with the code above ^
+
 # set wd (use your own)---------------------------------------------------------
 setwd("/Users/lauraberman/OneDrive - National University of Singapore/Documents/Wisconsin/Sound Forest Lab/Ecoregions")
 
