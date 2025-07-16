@@ -2,7 +2,8 @@
 
 # Soundscape Baselines PCA of soundscape similarity
 # one row per SITE
-# 3 April 2025
+# created 3 April 2025
+# last updated 16 July 2025
 
 library(tidyverse)
 library(FactoMineR)
@@ -14,19 +15,20 @@ library(lubridate)
 library(missMDA)
 
 # set wd -----------------------------------------------------------------------
-setwd("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Soundscape Baselines/Draft 1")
+setwd("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Soundscape Baselines/SoundscapeBaselines_GIT")
 
 
 ################################################################################
 # Preprocessing. Already completed
 ################################################################################
 
+# These steps are done only once. Skip for now.
 
 # load data --------------------------------------------------------------------
-ENT <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/ENT_Singapore_20200623_20200708.csv")
-ACI <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/ACI_Singapore_20200623_20200708.csv")
-EVN <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/EVN_Singapore_20200623_20200708.csv")
-PMN <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/PMN_Singapore_20200623_20200708.csv")
+# ENT <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/ENT_Singapore_20200623_20200708.csv")
+# ACI <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/ACI_Singapore_20200623_20200708.csv")
+# EVN <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/EVN_Singapore_20200623_20200708.csv")
+# PMN <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Singapore/PMN_Singapore_20200623_20200708.csv")
 
 # ENT <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Baraboo/ENT_Baraboo_20240506_20240601.csv")
 # ACI <- read.csv("/Users/lauraberman/Library/CloudStorage/OneDrive-NationalUniversityofSingapore/Documents/Wisconsin/Sound Forest Lab/Acoustic indices/2_tidy_indices/Baraboo/ACI_Baraboo_20240506_20240601.csv")
@@ -194,14 +196,14 @@ write_csv(indices_10min, "AllIndices_SiteAvg_10min_ForPCA_Singapore.csv")
 
 # read in data (vroom MUCH faster than read.csv) -------------------------------
 
-USA <- vroom("AllIndices_SiteAvg_10min_ForPCA_USA.csv")
-Germany <- vroom("AllIndices_SiteAvg_10min_ForPCA_Germany.csv")
-Ecuador <- vroom("AllIndices_SiteAvg_10min_ForPCA_Ecuador.csv")
-Peru <- vroom("AllIndices_SiteAvg_10min_ForPCA_Peru.csv")
-Gabon <- vroom("AllIndices_SiteAvg_10min_ForPCA_Gabon.csv")
-Liberia <- vroom("AllIndices_SiteAvg_10min_ForPCA_Liberia.csv")
-Singapore <- vroom("AllIndices_SiteAvg_10min_ForPCA_Singapore.csv")
-Brunei <- vroom("AllIndices_SiteAvg_10min_ForPCA_Brunei.csv")
+USA <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_USA.csv")
+Germany <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Germany.csv")
+Ecuador <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Ecuador.csv")
+Peru <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Peru.csv")
+Gabon <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Gabon.csv")
+Liberia <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Liberia.csv")
+Singapore <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Singapore.csv")
+Brunei <- vroom("data/AllIndices_SiteAvg_10min_ForPCA_Brunei.csv")
 
 # add missing country info (whoops) --------------------------------------------
 
@@ -214,7 +216,7 @@ Peru$Country <- "Peru"
 
 indices_10min <- rbind(USA, Germany, Ecuador, Peru, Gabon, Liberia, Brunei, Singapore) #ALL countries
 
-write.csv(indices_10min, "PCAinput_allIndices_allCountries_10minAvg.csv")
+write.csv(indices_10min, "PCAinput_allIndices_allCountries_10minAvg.csv") # optional save
 
 indices_10min <- rbind(Ecuador, Peru, Gabon, Liberia, Brunei, Singapore) # TROPICAL countries
 
