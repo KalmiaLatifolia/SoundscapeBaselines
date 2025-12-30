@@ -6,7 +6,9 @@ This repository contains acoustic indices calculated from approximatly one month
 The indices power minus noise (PMN), acoustic complexity index (ACI), inverse acoustic entropy (ENT), and acoustic events (EVN) are present for all sites.
 Acoustic indices were calculated using the QUT Ecoacoustics Analysis Programs (https://ap.qut.ecoacoustics.info/).
 
-**Site Details:**
+<details>
+<summary><strong>Site Details: (click to expand)</strong></summary>
+
 
 | Country | Locality | ID | Lat | Lon | Start Date | End Date | Duration (days) | Sampling Rate |
 |---------|---------|----|-----|-----|------------|----------|-----------------|---------------|
@@ -51,6 +53,10 @@ Acoustic indices were calculated using the QUT Ecoacoustics Analysis Programs (h
 | Singapore | Dairy Farm Nature Park | DAFA | 1.358419 | 103.777492 | 23 June 2020 | 08 July 2020 | 15 | 16 kHz |
 | Singapore | National University of Singapore | NUS | 1.295069 | 103.779266 | 23 June 2020 | 08 July 2020 | 15 | 16 kHz |
 | Singapore | Sungei Buloh Wetland Reserve | SBWR | 1.441586 | 103.735308 | 23 June 2020 | 08 July 2020 | 15 | 16 kHz |
+
+
+Full table: `data/site_metadata.csv`
+</details>
 
 
 ## Data structure
